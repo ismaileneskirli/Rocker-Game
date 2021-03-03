@@ -23,12 +23,12 @@ Experimental early generation spacecraft. Trying to escape from unknown planet.
 
 Onion Design => All feautures need to feed the core feature and make it better.
 
-1- Flying the rocket
-2- Crushing the rocket. World collision
-3- Level Progression 
+- [ l Flying the rocket
+- [ ] Crushing the rocket. World collision
+- [ ] Level Progression 
 
 
 ## TODO : Possible upgrades :
 
-- [] Fuel
-- [] Moving obstacles
+- [ ] Fuel
+- [ ] Moving obstacles

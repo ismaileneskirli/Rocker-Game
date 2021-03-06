@@ -29,6 +29,6 @@ Onion Design => All feautures need to feed the core feature and make it better.
 
 
 ## TODO : Possible upgrades :
-
+- [ ] Audio - Particle System ( Crashing, boosting, finishing)
 - [ ] Fuel
 - [ ] Moving obstacles

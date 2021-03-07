@@ -1,4 +1,6 @@
 # Rocket-Game :
+![rocket-game](https://user-images.githubusercontent.com/69651222/110243618-3c4ff280-7f6c-11eb-89ae-2af2369e12ec.png)
+
 Try not to hit the walls. This is the 2nd game that i built.
 
 ## Player Experience :

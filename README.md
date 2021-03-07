@@ -28,16 +28,24 @@ Onion Design => All feautures need to feed the core feature and make it better.
 - [x] Level Progression (add delay invoke )
 
 
-## TODO : Possible upgrades :
+## TODO : Possible upgrades / Game Design Approach :
 - [x] Audio - Particle System ( Crashing, boosting, finishing)
 - [ ] Fuel
-- [ ] Moving obstacles (In 3rd level)
+- [x] Moving obstacles (In 3rd level)
 - [x] Cheating shortcuts for disabling collisions, and level ups.
+- [ ] Fly through a gap
+- [ ] Land on moving platform
+- [ ] Fly through narrow tunnel
+- [ ] Faster rocket
+- [ ] Bigger rocket / Add one extra booster
+- [ ] Closer moving camera
+- [ ] Reversed Control
 
+- [ ] Publish to https://sharemygame.com/
 
 ## Learning Objectives :
 
 -  Keyboard oriented vs code using
 -  Player movement
--  Level Design
+-  Level Design (Create a template before designing next level)
 -  Create cheating mechanism (for debug purposes, when the levels gets hard i need it for testing my game)

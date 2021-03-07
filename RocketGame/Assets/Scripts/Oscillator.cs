@@ -22,6 +22,9 @@ public class Oscillator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // since numbers are not dividable by 0 it is protection. İf period smaller than epsilon do nothing below.
+        if(period <= Mathf.Epsilon) {return;}
+
 
         //Genereating sinus wave in here.
         float cycles = Time.time / period ; // every 2 sec 1 cycle is finished. period equals to 2. cycles var is contiunally growing over time..

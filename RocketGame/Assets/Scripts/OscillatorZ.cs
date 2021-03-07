@@ -21,6 +21,9 @@ public class OscillatorZ : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // since numbers are not dividable by 0 it is protection. İf period smaller than epsilon do nothing below.
+        if(period <= Mathf.Epsilon) {return;}
+
         float cycles = Time.time / period ;
         float tau = Mathf.PI * 2;
         float sinWave = Mathf.Sin(cycles * tau);

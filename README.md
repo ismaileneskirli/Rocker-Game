@@ -1,4 +1,4 @@
-# Rocket-Game
+# Rocket-Game :
 Try not to hit the walls. This is the 2nd game that i built.
 
 ## Player Experience :
@@ -14,12 +14,12 @@ Skillfully fly spaceship and avoid environmental hazards.
 Get from starting point to finishing point to complete the level, then progress to the next level.
 If you die in level x you start from level x.
 
-## Game Theme 
+## Game Theme
 
 Experimental early generation spacecraft. Trying to escape from unknown planet.
 
 
-## Most important features of my game : 
+## Most important features of my game :
 
 Onion Design => All feautures need to feed the core feature and make it better.
 
@@ -29,6 +29,15 @@ Onion Design => All feautures need to feed the core feature and make it better.
 
 
 ## TODO : Possible upgrades :
-- [ ] Audio - Particle System ( Crashing, boosting, finishing)
+- [x] Audio - Particle System ( Crashing, boosting, finishing)
 - [ ] Fuel
-- [ ] Moving obstacles
+- [ ] Moving obstacles (In 3rd level)
+- [x] Cheating shortcuts for disabling collisions, and level ups.
+
+
+## Learning Objectives :
+
+-  Keyboard oriented vs code using
+-  Player movement
+-  Level Design
+-  Create cheating mechanism (for debug purposes, when the levels gets hard i need it for testing my game)

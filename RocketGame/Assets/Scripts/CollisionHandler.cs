@@ -15,15 +15,25 @@ public class CollisionHandler : MonoBehaviour
     // References
     AudioSource rocket ;
 
+    Transform Collision ;
+
     // States
     bool isTransitioning = false; // True when bumped into sth.
+    bool disableCollision = false;
 
     private void Start() {
         rocket = GetComponent<AudioSource>();
     }
+
+    void Update(){
+        // When L key is pressed level up !
+        cheatNextLevel();
+        // When c key is pressed ignore collisions, it is toggling do enable collision press twice.
+        cheatCollisions();
+    }
     private void OnCollisionEnter(Collision other) {
 
-        if(!isTransitioning){
+        if(!isTransitioning && !disableCollision){
             switch(other.gameObject.tag){
                 case "Finish":
                     Debug.Log("Finish");
@@ -79,4 +89,21 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(nextSceneIndex);
         isTransitioning = false;
     }
+
+    // Cheat / Debug Keys :
+
+    void cheatNextLevel(){
+        if(Input.GetKey(KeyCode.L)){
+            LevelUp();
+        }
+    }
+
+    void cheatCollisions(){
+        if(Input.GetKey(KeyCode.C)){
+            //disable collisions by toggling collision state
+            disableCollision = !disableCollision;
+        }
+    }
 }
+
+

@@ -7,7 +7,11 @@ public class Movement : MonoBehaviour
     // Variables
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationThrust = 100f;
-    [SerializeField] AudioClip mainEngine ;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] ParticleSystem downBooster;
+    [SerializeField] ParticleSystem upBooster;
+
+    [SerializeField] ParticleSystem mainBooster;
 
     //References
     AudioSource rocketBoost;
@@ -32,33 +36,89 @@ public class Movement : MonoBehaviour
 
     void ProcessThrust()
     {
-        if(Input.GetKey(KeyCode.Space)){
-            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            //Debug.Log("Space is pressed");
-            if(!rocketBoost.isPlaying){
-                //AudioSource.Play can only be used when there is only 1 audio. This func cant take parameters.
-                //rocketBoost.Play();
-                rocketBoost.PlayOneShot(mainEngine);
-            }
+        if(Input.GetKey(KeyCode.Space))
+        {
+            StartThrusting();
         }
-        else{
-            if(rocketBoost.isPlaying){
-                rocketBoost.Stop();
-            }
+        else
+        {
+            StopThrusting();
         }
     }
+    private void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        // if main booster particles are not playing then play them.
+        if (!mainBooster.isPlaying)
+        {
+            mainBooster.Play();
+        }
+
+        //Debug.Log("Space is pressed");
+        if (!rocketBoost.isPlaying)
+        {
+            //AudioSource.Play can only be used when there is only 1 audio. This func cant take parameters.
+            //rocketBoost.Play();
+            rocketBoost.PlayOneShot(mainEngine);
+        }
+    }
+
+    private void StopThrusting()
+    {
+        if (rocketBoost.isPlaying)
+        {
+            rocketBoost.Stop();
+        }
+        if (mainBooster.isPlaying)
+        {
+            mainBooster.Stop();
+        }
+    }
+
 
     void ProcessRotation(){
 
         if(Input.GetKey(KeyCode.A))
         {
-            //Debug.Log("Rotating Left");
-            Rotate(rotationThrust); // 0,0,1 -> change z axis.
+            RotateUp();
+
         }
         // else cond used because users shouldn't press a and d at the same time. Cant go right and left at the sime time right :)
-        else if(Input.GetKey(KeyCode.D)){
-            //Debug.Log("Rotating Right");
-            Rotate(-rotationThrust); // 0,0,-1 -z axis
+        else if(Input.GetKey(KeyCode.D))
+        {
+            RotateDown();
+        }
+        else
+        {
+            StopRotation();
+        }
+
+
+    }
+
+    private void StopRotation()
+    {
+        upBooster.Stop();
+        downBooster.Stop();
+    }
+
+    private void RotateDown()
+    {
+        //Debug.Log("Rotating down");
+        Rotate(-rotationThrust); // 0,0,-1 -z axis
+        if (!downBooster.isPlaying)
+        {
+            downBooster.Play();
+        }
+    }
+
+    private void RotateUp()
+    {
+        //Debug.Log("Rotating Left");
+        Rotate(rotationThrust); // 0,0,1 -> change z axis.
+        if (!upBooster.isPlaying)
+        {
+            upBooster.Play();
         }
     }
 
